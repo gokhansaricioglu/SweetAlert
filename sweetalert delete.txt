@@ -1,0 +1,20 @@
+﻿  @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", @id = "delete" })
+
+ <script>
+        $("body").on("click", "#delete", function (e) {
+            let devamı = this.href; // Evet'e basar ise devam etsin diye  
+            e.preventDefault(); // Delete işlemini engellemek için
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) { //Eğer true ise 
+                        window.location = devamı; // işlemi devam ettir
+                    }
+                });
+        });
+    </script>
